@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IIC 3.0 | International Innovation Challenge | Manipal University Jaipur</title>
+  <meta name="description" content="International Innovation Challenge (IIC) 3.0 Hackathon - Dept of IoT & Intelligent Systems, Manipal University Jaipur. Problem statements, guidelines, and registration.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Minimalist White & Purple CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Strip -->
+  <div class="top-strip">
+    <div class="container">
+      <span><strong>Round 1 Submissions Open:</strong> Submit 9-Slide PPT by <strong>25 August 2026, 11:59 PM IST</strong></span>
+      <a href="#problem-statements">View 10 Problem Themes →</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <img src="assets/iic_logo.jpg" alt="IIC 3.0 Logo" class="brand-img">
+        <div class="brand-divider"></div>
+        <div class="brand-text">
+          <span class="brand-title">IIC 3.0 Hackathon</span>
+          <span class="brand-sub">Manipal University Jaipur</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#problem-statements" class="nav-link highlight">Problem Statements</a></li>
+          <li><a href="#timeline" class="nav-link">Timeline</a></li>
+          <li><a href="#eligibility" class="nav-link">Eligibility</a></li>
+          <li><a href="#fees" class="nav-link">Fees</a></li>
+          <li><a href="#ppt-guide" class="nav-link">PPT Guide</a></li>
+          <li><a href="#faqs" class="nav-link">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#fees" class="btn btn-primary btn-sm">Register Team</a>
+        <button class="mobile-menu-btn" onclick="toggleMobileNav()"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-graduation-cap"></i> Dept of IoT & Intelligent Systems • MUJ
+          </div>
+
+          <h1 class="hero-title">
+            International Innovation <br>
+            <span>Challenge 3.0</span>
+          </h1>
+
+          <p class="hero-desc">
+            A 36-hour hackathon hosted by Manipal University Jaipur to empower students across disciplines to address real-world challenges with industry mentorship.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#problem-statements" class="btn btn-primary btn-lg">Explore Problem Statements</a>
+            <button class="btn btn-outline btn-lg" onclick="downloadTemplateModal()">Download PPT Template (9 Slides)</button>
+          </div>
+
+          <!-- Clean Countdown Strip -->
+          <div class="countdown-strip">
+            <div class="countdown-info">
+              <span class="countdown-title">Round 1 Submission Deadline</span>
+              <span class="countdown-date">25 August 2026 • 11:59 PM IST</span>
+            </div>
+            <div class="countdown-digits">
+              <div class="digit-box">
+                <span class="digit-val" id="days">00</span>
+                <span class="digit-lbl">Days</span>
+              </div>
+              <span class="digit-sep">:</span>
+              <div class="digit-box">
+                <span class="digit-val" id="hours">00</span>
+                <span class="digit-lbl">Hours</span>
+              </div>
+              <span class="digit-sep">:</span>
+              <div class="digit-box">
+                <span class="digit-val" id="minutes">00</span>
+                <span class="digit-lbl">Mins</span>
+              </div>
+              <span class="digit-sep">:</span>
+              <div class="digit-box">
+                <span class="digit-val" id="seconds">00</span>
+                <span class="digit-lbl">Secs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="assets/muj_campus.jpg" alt="Manipal University Jaipur Campus" class="hero-img">
+          <div class="hero-visual-caption">
+            <div>
+              <strong>Manipal University Jaipur</strong>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Dehmi Kalan, Jaipur, Rajasthan</div>
+            </div>
+            <span class="tag-badge">Finale Venue</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Highlights Strip -->
+      <div class="stats-strip">
+        <div class="stat-item">
+          <div class="stat-num">36 Hours</div>
+          <div class="stat-txt">Hackathon Sprint</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10 Themes</div>
+          <div class="stat-txt">Innovation Tracks</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1 - 4</div>
+          <div class="stat-txt">Members per Team</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">Free Stay & Food</div>
+          <div class="stat-txt">For Offline Finalists</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Statements Hub (Main Feature) -->
+  <section class="section" id="problem-statements">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Innovation Themes</span>
+        <h2 class="section-title">Problem Statements</h2>
+        <p class="section-desc">
+          Choose a problem statement from any of the 10 themes for the Round 1 online shortlisting. Submit your 9-slide PPT presentation before 25th August.
+        </p>
+      </div>
+
+      <div class="ps-filter-container">
+        <div class="ps-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="psSearchInput" placeholder="Search by keyword (e.g. AI, Edge IoT, Healthcare, Web3)...">
+        </div>
+
+        <div class="ps-pills" id="categoryPills">
+          <button class="pill-btn active" data-category="all">All 10 Themes</button>
+          <button class="pill-btn" data-category="ai">AI & Systems</button>
+          <button class="pill-btn" data-category="iot">IoT & Smart Cities</button>
+          <button class="pill-btn" data-category="health">Healthcare</button>
+          <button class="pill-btn" data-category="sustainability">CleanTech</button>
+          <button class="pill-btn" data-category="fintech">FinTech & Web3</button>
+          <button class="pill-btn" data-category="security">Cybersecurity</button>
+          <button class="pill-btn" data-category="edtech">EdTech</button>
+          <button class="pill-btn" data-category="agritech">AgriTech</button>
+          <button class="pill-btn" data-category="robotics">Robotics</button>
+          <button class="pill-btn" data-category="open">Open Track</button>
+        </div>
+      </div>
+
+      <!-- Problem Cards Grid -->
+      <div class="problem-cards-grid" id="problemGrid">
+        <!-- Rendered via app.js -->
+      </div>
+
+      <!-- Offline Round Notice -->
+      <div class="offline-banner">
+        <div class="offline-banner-text">
+          <h4><i class="fa-solid fa-lock" style="margin-right: 6px;"></i> Round 2 Offline Problem Statements</h4>
+          <p>Problem statements for the offline round will be provided live during the offline round at MUJ on <strong>08 September 2026</strong>.</p>
+        </div>
+        <a href="#timeline" class="btn btn-outline btn-sm">View Schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stages & Timeline -->
+  <section class="section section-alt" id="timeline">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Event Stages</span>
+        <h2 class="section-title">Stages & Tentative Timelines</h2>
+        <p class="section-desc">Key milestones from project submission to the offline grand finale at MUJ.</p>
+      </div>
+
+      <div class="timeline-grid">
+        <!-- Stage 1 -->
+        <div class="timeline-card active-stage">
+          <div class="timeline-step">Stage 1 • Online</div>
+          <h3 class="timeline-title">Shortlisting Round</h3>
+          <div class="timeline-dates">03 Jul 2026 → 25 Aug 2026, 11:59 PM IST</div>
+          
+          <ul class="timeline-list">
+            <li><i class="fa-solid fa-check"></i> Choose any 1 of the 10 official themes.</li>
+            <li><i class="fa-solid fa-check"></i> Submit PPT of up to 9 slides (adhering to template).</li>
+            <li><i class="fa-solid fa-check"></i> Optional prototype: GitHub code link & video demo.</li>
+            <li><i class="fa-solid fa-check"></i> Registration fee must be paid before Round 1 evaluation.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Results Announcement:</strong> 30th August 2026.</li>
+          </ul>
+          
+          <div style="margin-top: 1.25rem;">
+            <button class="btn btn-primary btn-sm" onclick="openSubmitModal()">Submit Round 1 PPT</button>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="timeline-card">
+          <div class="timeline-step">Stage 2 • Live at MUJ</div>
+          <h3 class="timeline-title">36-Hour Offline Round</h3>
+          <div class="timeline-dates">08 Sep 2026, 10:00 AM → 09 Sep 2026, 06:00 PM IST</div>
+          
+          <ul class="timeline-list">
+            <li><i class="fa-solid fa-check"></i> Shortlisted teams invited to Manipal University Jaipur.</li>
+            <li><i class="fa-solid fa-check"></i> Problem statements will be provided during offline round.</li>
+            <li><i class="fa-solid fa-check"></i> Common rest rooms (separate for boys & girls, no extra charge).</li>
+            <li><i class="fa-solid fa-check"></i> Meals provided throughout the 36-hour sprint.</li>
+            <li><i class="fa-solid fa-check"></i> International teams can participate online or offline.</li>
+          </ul>
+
+          <div style="margin-top: 1.25rem;">
+            <a href="#about" class="btn btn-subtle btn-sm">Venue Info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-box">
+        <div class="about-text">
+          <span class="section-tag">About The Host</span>
+          <h2 class="section-title" style="font-size: 1.75rem;">Manipal University Jaipur & IIC 3.0</h2>
+          
+          <p>
+            The <strong>International Innovation Challenge (IIC)</strong> is hosted by the <strong>Department of IoT & Intelligent Systems</strong>, School of Computer Science and Engineering, Manipal University Jaipur, to empower young minds to solve real-world problems through hands-on innovation.
+          </p>
+
+          <p>
+            The Manipal Education and Medical Group is an established leader in education and research. Manipal University Jaipur (MUJ) launched in 2011 on an invitation from the Government of Rajasthan, redefining academic excellence with practical, experiential learning.
+          </p>
+
+          <div class="about-features">
+            <div class="feature-pill"><i class="fa-solid fa-clock"></i> 36-Hour Hackathon</div>
+            <div class="feature-pill"><i class="fa-solid fa-user-tie"></i> Industry Mentorship</div>
+            <div class="feature-pill"><i class="fa-solid fa-bed"></i> Free Rest Rooms (Boys/Girls)</div>
+            <div class="feature-pill"><i class="fa-solid fa-utensils"></i> Meals Provided</div>
+          </div>
+        </div>
+
+        <div class="about-card-info">
+          <h4>Host University Details</h4>
+          <div class="info-rows">
+            <div class="info-row"><span>Institution:</span> <span>Manipal University Jaipur</span></div>
+            <div class="info-row"><span>Department:</span> <span>IoT & Intelligent Systems</span></div>
+            <div class="info-row"><span>Established:</span> <span>2011 (Govt. of Rajasthan)</span></div>
+            <div class="info-row"><span>Campus:</span> <span>Dehmi Kalan, Jaipur</span></div>
+            <div class="info-row"><span>Accommodation:</span> <span>Included (No extra charge)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eligibility & Registration Fees -->
+  <section class="section section-alt" id="eligibility">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Who Can Join</span>
+        <h2 class="section-title">Eligibility & Team Rules</h2>
+        <p class="section-desc">Open to all undergraduate and postgraduate students across diverse disciplines.</p>
+      </div>
+
+      <div class="eligibility-strip">
+        <div class="el-box">
+          <i class="fa-solid fa-microchip"></i>
+          <h4>Engineering</h4>
+          <p>UG & PG students in all tech disciplines.</p>
+        </div>
+        <div class="el-box">
+          <i class="fa-solid fa-briefcase"></i>
+          <h4>Management</h4>
+          <p>BBA, MBA, and Business Analytics.</p>
+        </div>
+        <div class="el-box">
+          <i class="fa-solid fa-flask"></i>
+          <h4>Arts, Commerce & Sciences</h4>
+          <p>Interdisciplinary streams and others.</p>
+        </div>
+        <div class="el-box">
+          <i class="fa-solid fa-scale-balanced"></i>
+          <h4>Law</h4>
+          <p>Law and Public Policy students.</p>
+        </div>
+      </div>
+
+      <!-- Pricing Cards Section -->
+      <div id="fees" style="scroll-margin-top: 80px;">
+        <div class="section-head" style="margin-bottom: 2rem;">
+          <span class="section-tag">Transparent Pricing</span>
+          <h2 class="section-title">Registration Fees</h2>
+          <p class="section-desc">Registration fee is <strong>per team (not per person)</strong> and covers 1 to 4 members.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- MUJ -->
+          <div class="price-card">
+            <div>
+              <div class="price-tier">MUJ Students (Indian)</div>
+              <div class="price-val">₹699 <span>/ team</span></div>
+              <div class="price-note">Covers entire team (1-4 members)</div>
+              
+              <ul class="price-features">
+                <li><i class="fa-solid fa-check"></i> Round 1 Evaluation Eligibility</li>
+                <li><i class="fa-solid fa-check"></i> Offline Finale Access at MUJ</li>
+                <li><i class="fa-solid fa-check"></i> Meals & Rest Rooms Included</li>
+                <li><i class="fa-solid fa-check"></i> Official Certificates</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline btn-block" onclick="openRegistrationModal('MUJ', 699)">Register as MUJ Team</button>
+          </div>
+
+          <!-- Non-MUJ -->
+          <div class="price-card featured">
+            <div>
+              <div class="price-tier">Non-MUJ Students (Indian)</div>
+              <div class="price-val">₹799 <span>/ team</span></div>
+              <div class="price-note">Covers entire team (1-4 members)</div>
+              
+              <ul class="price-features">
+                <li><i class="fa-solid fa-check"></i> Round 1 Evaluation Eligibility</li>
+                <li><i class="fa-solid fa-check"></i> 36-Hr Offline Finale at MUJ</li>
+                <li><i class="fa-solid fa-check"></i> Free Stay (Boys/Girls Rest Rooms)</li>
+                <li><i class="fa-solid fa-check"></i> Meals & Mentorship Included</li>
+              </ul>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="openRegistrationModal('Non-MUJ', 799)">Register as Non-MUJ Team</button>
+          </div>
+
+          <!-- International -->
+          <div class="price-card">
+            <div>
+              <div class="price-tier">International Students</div>
+              <div class="price-val">$50 <span>/ team</span></div>
+              <div class="price-note">Covers entire team (1-4 members)</div>
+              
+              <ul class="price-features">
+                <li><i class="fa-solid fa-check"></i> Round 1 Online Evaluation</li>
+                <li><i class="fa-solid fa-check"></i> Finale Option: Online or Offline</li>
+                <li><i class="fa-solid fa-check"></i> Stay & Meals if Visiting Campus</li>
+                <li><i class="fa-solid fa-check"></i> International Certification</li>
+              </ul>
+            </div>
+            <button class="btn btn-outline btn-block" onclick="openRegistrationModal('International', 50)">Register as Intl Team</button>
+          </div>
+        </div>
+
+        <div class="clean-alert">
+          <strong>Important Payment Guidelines:</strong> Fee must be paid before Round 1 evaluation. Ensure the Team Leader's details and correct Transaction ID are provided. Paying an incorrect fee tier will lead to disqualification.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PPT Guidelines Section -->
+  <section class="section" id="ppt-guide">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Submission Format</span>
+        <h2 class="section-title">PPT Submission Guidelines</h2>
+        <p class="section-desc">Teams must submit their project in the form of a PPT of <strong>up to 9 slides</strong> (as per provided template).</p>
+      </div>
+
+      <div class="ppt-container">
+        <div class="ppt-table-layout">
+          <div>
+            <h4 style="font-size: 1.05rem; margin-bottom: 0.85rem; color: var(--text-main);">Official 9-Slide Structure</h4>
+            <div class="slide-items-list">
+              <div class="slide-item"><strong>Slide 1: Team & Title</strong><span>Project name, theme, team members & college.</span></div>
+              <div class="slide-item"><strong>Slide 2: Problem Statement</strong><span>Clear definition of the problem addressed.</span></div>
+              <div class="slide-item"><strong>Slide 3: Proposed Solution</strong><span>Core innovation & unique value proposition.</span></div>
+              <div class="slide-item"><strong>Slide 4: Technical Architecture</strong><span>Hardware, AI models & software stack.</span></div>
+              <div class="slide-item"><strong>Slide 5: Feasibility</strong><span>Practical implementation & viability.</span></div>
+              <div class="slide-item"><strong>Slide 6: Impact & Scope</strong><span>Social, economic, or industrial significance.</span></div>
+              <div class="slide-item"><strong>Slide 7: Prototype (Optional)</strong><span>GitHub code repo or demo video link.</span></div>
+              <div class="slide-item"><strong>Slide 8: Future Roadmap</strong><span>Next steps & commercial deployment.</span></div>
+              <div class="slide-item"><strong>Slide 9: Conclusion</strong><span>Summary of takeaways and references.</span></div>
+            </div>
+          </div>
+
+          <div class="ppt-download-card">
+            <h4>Official PPT Template</h4>
+            <p>Download the standardized slide deck in PPTX or Google Slides format.</p>
+            <button class="btn btn-primary btn-block btn-sm" onclick="downloadTemplateModal()">
+              <i class="fa-solid fa-download"></i> Download 9-Slide Template
+            </button>
+            <div style="margin-top: 0.75rem;">
+              <button class="btn btn-outline btn-block btn-sm" onclick="openSubmitModal()">Submit Solution PPT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="section section-alt" id="faqs">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Quick answers regarding registration, eligibility, food, stay, and rounds.</p>
+      </div>
+
+      <div class="faq-box">
+        <div class="faq-card open">
+          <button class="faq-q"><span>What is the team size and eligibility?</span> <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Open to all undergraduate and postgraduate students across all disciplines. Teams can have 1 to 4 members. Members can be from the same or different institutions.</p></div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-q"><span>Is the registration fee per person or per team?</span> <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>The fee is <strong>per team (not per person)</strong>: ₹699 for MUJ teams, ₹799 for Non-MUJ Indian teams, and $50 for International teams.</p></div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-q"><span>What are the key deadlines for Round 1?</span> <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Round 1 submissions close on <strong>25th August 2026, 11:59 PM IST</strong>. Shortlisted results will be announced on <strong>30th August 2026</strong>.</p></div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-q"><span>What stay and food arrangements are provided at MUJ?</span> <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Common Rest Rooms will be provided (separate for boys and separate for girls) with <strong>no additional charges</strong>. Wholesome meals will be provided to all offline finalists.</p></div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-q"><span>Can international teams participate online?</span> <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a"><p>Yes, international teams have the flexibility to participate in the Grand Finale either online or in-person at MUJ campus.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Modal -->
+  <div class="modal-backdrop" id="problemModal">
+    <div class="modal-sheet lg">
+      <button class="modal-close" onclick="closeModal('problemModal')">✕</button>
+      <div id="problemModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Registration Modal -->
+  <div class="modal-backdrop" id="registrationModal">
+    <div class="modal-sheet">
+      <button class="modal-close" onclick="closeModal('registrationModal')">✕</button>
+      <h3 style="margin-bottom: 0.25rem;">Team Registration</h3>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.25rem;">IIC 3.0 • Department of IoT & Intelligent Systems, MUJ</p>
+
+      <form onsubmit="handleRegistrationSubmit(event)">
+        <div class="form-group">
+          <label>Team Name *</label>
+          <input type="text" id="regTeamName" class="form-input" placeholder="e.g. CodeWizards" required>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Category *</label>
+            <select id="regCategory" class="form-input" onchange="updateModalFee()" required>
+              <option value="Non-MUJ">Non-MUJ Students (₹799)</option>
+              <option value="MUJ">MUJ Students (₹699)</option>
+              <option value="International">International ($50 USD)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Theme *</label>
+            <select id="regThemeSelect" class="form-input" required>
+              <option value="AI & Intelligent Systems">AI & Intelligent Systems</option>
+              <option value="IoT & Smart Cities">IoT & Smart Cities</option>
+              <option value="Healthcare & MedTech">Healthcare & MedTech</option>
+              <option value="CleanTech & Energy">CleanTech & Energy</option>
+              <option value="FinTech & Web3">FinTech & Web3</option>
+              <option value="Cyber Defense">Cyber Defense</option>
+              <option value="EdTech">EdTech</option>
+              <option value="AgriTech">AgriTech</option>
+              <option value="Robotics & Drones">Robotics & Drones</option>
+              <option value="Open Innovation">Open Innovation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Leader Name *</label>
+            <input type="text" id="regLeaderName" class="form-input" placeholder="Full Name" required>
+          </div>
+          <div class="form-group">
+            <label>Leader Email *</label>
+            <input type="email" id="regLeaderEmail" class="form-input" placeholder="name@domain.com" required>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Phone / WhatsApp *</label>
+            <input type="tel" id="regLeaderPhone" class="form-input" placeholder="+91 9876543210" required>
+          </div>
+          <div class="form-group">
+            <label>Transaction ID / UTR *</label>
+            <input type="text" id="regTransactionId" class="form-input" placeholder="Payment Ref No." required>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-purple-light); padding: 0.75rem 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.85rem;">
+          Payable Amount: <strong id="modalFeeDisplay" style="color: var(--purple-primary);">₹799 INR (Per Team)</strong>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem;">
+          <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('registrationModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Complete Registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Submission Modal -->
+  <div class="modal-backdrop" id="submitModal">
+    <div class="modal-sheet">
+      <button class="modal-close" onclick="closeModal('submitModal')">✕</button>
+      <h3 style="margin-bottom: 0.25rem;">Submit Round 1 PPT</h3>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.25rem;">Deadline: 25 August 2026, 11:59 PM IST</p>
+
+      <form onsubmit="handleProjectSubmit(event)">
+        <div class="form-group">
+          <label>Registered Team Name *</label>
+          <input type="text" id="subTeamCode" class="form-input" placeholder="Team Name" required>
+        </div>
+        <div class="form-group">
+          <label>Google Drive / Cloud PPT Link *</label>
+          <input type="url" id="subPptLink" class="form-input" placeholder="https://drive.google.com/..." required>
+          <small style="font-size: 0.72rem; color: var(--text-muted);">Ensure public view access and max 9 slides.</small>
+        </div>
+        <div class="form-group">
+          <label>GitHub Code Link (Optional)</label>
+          <input type="url" id="subGithub" class="form-input" placeholder="https://github.com/...">
+        </div>
+        <div class="form-group">
+          <label>Demo Video Link (Optional)</label>
+          <input type="url" id="subVideo" class="form-input" placeholder="YouTube / Loom / Drive link">
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem;">
+          <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('submitModal')">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Submit Proposal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Template Download Modal -->
+  <div class="modal-backdrop" id="templateModal">
+    <div class="modal-sheet">
+      <button class="modal-close" onclick="closeModal('templateModal')">✕</button>
+      <h3 style="margin-bottom: 0.25rem;">Download 9-Slide Template</h3>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.25rem;">Choose your preferred format:</p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-bottom: 1rem;">
+        <button class="btn btn-outline" style="padding: 1.25rem; flex-direction: column;" onclick="triggerTemplateDownload('pptx')">
+          <i class="fa-solid fa-file-powerpoint" style="font-size: 1.5rem; margin-bottom: 0.35rem;"></i>
+          <span>PowerPoint (.PPTX)</span>
+        </button>
+        <button class="btn btn-outline" style="padding: 1.25rem; flex-direction: column;" onclick="triggerTemplateDownload('gslides')">
+          <i class="fa-brands fa-google-drive" style="font-size: 1.5rem; margin-bottom: 0.35rem; color: #059669;"></i>
+          <span>Google Slides</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-box" id="toastBox"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-layout">
+        <div class="footer-brand">
+          <h4>IIC 3.0 Hackathon</h4>
+          <p>Hosted by Department of IoT & Intelligent Systems, School of Computer Science & Engineering, Manipal University Jaipur.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#about">About MUJ</a></li>
+            <li><a href="#problem-statements">Problem Statements</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#fees">Fees</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul class="footer-links">
+            <li><a href="#ppt-guide">9-Slide Template</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Venue & Contact</h5>
+          <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Manipal University Jaipur<br>
+            Jaipur-Ajmer Highway, Dehmi Kalan, Jaipur 303007<br>
+            Email: iic.iot@jaipur.manipal.edu
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 International Innovation Challenge (IIC 3.0) • Manipal University Jaipur</div>
+        <div>Listed on Unstop Portal</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
