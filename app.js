@@ -438,46 +438,65 @@ window.openPrototypeSubmitModal = function () {
 // ────────────────────────────────────────────────────────────────────
 const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzP3_sA0qF0HukrnVhPqrjnMYtQReIJhxoKMI43mznZGf4riif-AvwVxP0uQwyJH9Tk/exec";
 
-  window.handlePrototypeSubmission = async function (e) {
+  window.handlePrototypeSubmission = function (e) {
     e.preventDefault();
 
     const teamName = document.getElementById('subTeamName').value.trim();
-    const track = document.getElementById('subTrackSelect').value;
-    const github = document.getElementById('subGithub').value.trim();
-    const demo = document.getElementById('subDemo').value.trim();
+    const track    = document.getElementById('subTrackSelect').value;
+    const github   = document.getElementById('subGithub').value.trim();
+    const demo     = document.getElementById('subDemo').value.trim();
 
-    const submitBtn = e.target.querySelector('[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting…";
-
-    // If no real endpoint configured, show info toast
     if (!SUBMIT_ENDPOINT || SUBMIT_ENDPOINT === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Submit Prototype";
       closeModal('submitModal');
       showToast("⚠️ Backend not configured. Add the Apps Script URL to app.js.");
       return;
     }
 
-    try {
-      // GET with query params — zero CORS issues with Google Apps Script
-      const params = new URLSearchParams({ teamName, track, github, demo });
-      const url = `${SUBMIT_ENDPOINT}?${params.toString()}`;
+    const submitBtn = e.target.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting…";
 
-      await fetch(url, { method: "GET", mode: "no-cors" });
+    // Create a hidden iframe so the page doesn't navigate on form submit
+    let iframe = document.getElementById('__gs_iframe');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = '__gs_iframe';
+      iframe.name = '__gs_iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
 
-      // With no-cors we can't read the response — if fetch resolves without throwing, assume success
+    // Build a temporary form targeting the hidden iframe (bypasses CORS entirely)
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = SUBMIT_ENDPOINT;
+    form.target = '__gs_iframe';
+    form.style.display = 'none';
+
+    [{ name: 'teamName', value: teamName },
+     { name: 'track',    value: track    },
+     { name: 'github',   value: github   },
+     { name: 'demo',     value: demo     }
+    ].forEach(({ name, value }) => {
+      const input = document.createElement('input');
+      input.type  = 'hidden';
+      input.name  = name;
+      input.value = value;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+
+    // Give the iframe 1.5s to complete, then show success
+    setTimeout(() => {
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Prototype";
       closeModal('submitModal');
       e.target.reset();
-      showToast(`✅ Prototype submitted for Team "${teamName}"! Logged to organiser sheet.`);
-
-    } catch (err) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Submit Prototype";
-      showToast("❌ Network error. Please check your connection and try again.");
-    }
+      showToast(`✅ Prototype submitted for Team "${teamName}"! Check your Google Sheet.`);
+    }, 1500);
   };
 
 function showToast(msg) {
