@@ -246,7 +246,7 @@ function renderProblemGrid() {
   `).join("");
 }
 
-window.selectTrackCategory = function(catKey) {
+window.selectTrackCategory = function (catKey) {
   selectedCategory = catKey;
   document.querySelectorAll(".cat-pill").forEach(p => {
     p.classList.toggle("active", p.dataset.cat === catKey);
@@ -299,7 +299,7 @@ function initFiltersAndEvents() {
 }
 
 // Problem Details Modal
-window.openProblemDetailModal = function(id) {
+window.openProblemDetailModal = function (id) {
   const item = PROBLEM_STATEMENTS.find(p => p.id === id);
   if (!item) return;
 
@@ -412,7 +412,7 @@ function initKickoffCountdown() {
 }
 
 // Modals
-window.openModal = function(id) {
+window.openModal = function (id) {
   const m = document.getElementById(id);
   if (m) {
     m.classList.add("open");
@@ -420,7 +420,7 @@ window.openModal = function(id) {
   }
 };
 
-window.closeModal = function(id) {
+window.closeModal = function (id) {
   const m = document.getElementById(id);
   if (m) {
     m.classList.remove("open");
@@ -428,16 +428,62 @@ window.closeModal = function(id) {
   }
 };
 
-window.openPrototypeSubmitModal = function() {
+window.openPrototypeSubmitModal = function () {
   openModal('submitModal');
 };
 
-window.handlePrototypeSubmission = function(e) {
-  e.preventDefault();
-  const name = document.getElementById('subTeamName').value;
-  closeModal('submitModal');
-  showToast(`✅ Prototype details submitted for Team "${name}"!`);
-};
+// ────────────────────────────────────────────────────────────────────
+// BACKEND: Paste your Google Apps Script Web App URL below after deploying.
+// See google_apps_script.gs for deployment instructions.
+// ────────────────────────────────────────────────────────────────────
+const SUBMIT_ENDPOINT = https://script.google.com/macros/s/AKfycbzP3_sA0qF0HukrnVhPqrjnMYtQReIJhxoKMI43mznZGf4riif-AvwVxP0uQwyJH9Tk/exec";
+
+  window.handlePrototypeSubmission = async function (e) {
+    e.preventDefault();
+
+    const teamName = document.getElementById('subTeamName').value.trim();
+    const track = document.getElementById('subTrackSelect').value;
+    const github = document.getElementById('subGithub').value.trim();
+    const demo = document.getElementById('subDemo').value.trim();
+
+    const submitBtn = e.target.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting…";
+
+    // If no real endpoint configured, show info toast
+    if (!SUBMIT_ENDPOINT || SUBMIT_ENDPOINT === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Prototype";
+      closeModal('submitModal');
+      showToast("⚠️ Backend not configured. Deploy google_apps_script.gs and add the URL to app.js.");
+      return;
+    }
+
+    try {
+      const response = await fetch(SUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ teamName, track, github, demo })
+      });
+
+      const result = await response.json();
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Prototype";
+
+      if (result.status === "success") {
+        closeModal('submitModal');
+        e.target.reset();
+        showToast(`✅ Prototype submitted for Team "${teamName}"! Logged to organiser sheet.`);
+      } else {
+        showToast(`❌ Submission failed: ${result.message}`);
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Prototype";
+      showToast("❌ Network error. Please check your connection and try again.");
+    }
+  };
 
 function showToast(msg) {
   const box = document.getElementById("toastContainer");
