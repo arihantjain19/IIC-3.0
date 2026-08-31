@@ -436,7 +436,7 @@ window.openPrototypeSubmitModal = function () {
 // BACKEND: Paste your Google Apps Script Web App URL below after deploying.
 // See google_apps_script.gs for deployment instructions.
 // ────────────────────────────────────────────────────────────────────
-const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzP3_sA0qF0HukrnVhPqrjnMYtQReIJhxoKMI43mznZGf4riif-AvwVxP0uQwyJH9Tk/exec";
+const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbyb0Cl_1MJKPtD33kxp_lcFLGwX98FC3s-SeNep1TOWPVI3doEVE4b-TF61InX-LvXT/exec";
 
   window.handlePrototypeSubmission = async function (e) {
     e.preventDefault();
@@ -451,7 +451,7 @@ const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzP3_sA0qF0Hukr
     submitBtn.textContent = "Submitting…";
 
     // If no real endpoint configured, show info toast
-    if (!SUBMIT_ENDPOINT || SUBMIT_ENDPOINT === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
+    if (!SUBMIT_ENDPOINT || SUBMIT_ENDPOINT === "https://script.google.com/macros/s/AKfycbyb0Cl_1MJKPtD33kxp_lcFLGwX98FC3s-SeNep1TOWPVI3doEVE4b-TF61InX-LvXT/exec") {
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Prototype";
       closeModal('submitModal');
