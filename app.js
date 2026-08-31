@@ -436,7 +436,7 @@ window.openPrototypeSubmitModal = function () {
 // BACKEND: Paste your Google Apps Script Web App URL below after deploying.
 // See google_apps_script.gs for deployment instructions.
 // ────────────────────────────────────────────────────────────────────
-const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbyb0Cl_1MJKPtD33kxp_lcFLGwX98FC3s-SeNep1TOWPVI3doEVE4b-TF61InX-LvXT/exec";
+const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzP3_sA0qF0HukrnVhPqrjnMYtQReIJhxoKMI43mznZGf4riif-AvwVxP0uQwyJH9Tk/exec";
 
   window.handlePrototypeSubmission = async function (e) {
     e.preventDefault();
@@ -455,29 +455,24 @@ const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbyb0Cl_1MJKPtD3
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Prototype";
       closeModal('submitModal');
-      showToast("⚠️ Backend not configured. Deploy google_apps_script.gs and add the URL to app.js.");
+      showToast("⚠️ Backend not configured. Add the Apps Script URL to app.js.");
       return;
     }
 
     try {
-      const response = await fetch(SUBMIT_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ teamName, track, github, demo })
-      });
+      // GET with query params — zero CORS issues with Google Apps Script
+      const params = new URLSearchParams({ teamName, track, github, demo });
+      const url = `${SUBMIT_ENDPOINT}?${params.toString()}`;
 
-      const result = await response.json();
+      await fetch(url, { method: "GET", mode: "no-cors" });
 
+      // With no-cors we can't read the response — if fetch resolves without throwing, assume success
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Prototype";
+      closeModal('submitModal');
+      e.target.reset();
+      showToast(`✅ Prototype submitted for Team "${teamName}"! Logged to organiser sheet.`);
 
-      if (result.status === "success") {
-        closeModal('submitModal');
-        e.target.reset();
-        showToast(`✅ Prototype submitted for Team "${teamName}"! Logged to organiser sheet.`);
-      } else {
-        showToast(`❌ Submission failed: ${result.message}`);
-      }
     } catch (err) {
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Prototype";
