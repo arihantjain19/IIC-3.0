@@ -436,7 +436,7 @@ window.openPrototypeSubmitModal = function () {
 // BACKEND: Paste your Google Apps Script Web App URL below after deploying.
 // See google_apps_script.gs for deployment instructions.
 // ────────────────────────────────────────────────────────────────────
-const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzP3_sA0qF0HukrnVhPqrjnMYtQReIJhxoKMI43mznZGf4riif-AvwVxP0uQwyJH9Tk/exec";
+const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzMJBPkiHUKTKBWzLNDWPc7pKb-_eHV9T4pBwuZphU5y_-2b89ZaytGWakcBmXs2psj/exec";
 
   window.handlePrototypeSubmission = function (e) {
     e.preventDefault();
