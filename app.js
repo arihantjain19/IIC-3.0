@@ -1,5 +1,5 @@
 /**
- * IIC 3.0 Hackathon - Clean, Uncluttered Logic
+ * IIC 3.0 Hackathon - Problem Statements & Prototype Engine
  * Department of IoT & Intelligent Systems, Manipal University Jaipur
  */
 
@@ -9,34 +9,34 @@ const PROBLEM_STATEMENTS = [
     theme: "AI & Systems",
     category: "ai",
     title: "Autonomous Agentic Workflows & Multi-Modal Intelligence",
-    shortDesc: "Architect resilient autonomous multi-agent systems and multi-modal AI capable of domain task orchestration and automated reasoning under uncertainty.",
+    shortDesc: "Architect resilient autonomous multi-agent systems and multi-modal AI capable of proactive domain task orchestration and automated reasoning under uncertainty.",
     fullDesc: "Modern enterprises and research systems are constrained by isolated single-turn AI models. This challenge calls for the design of autonomous agentic architectures that can synthesize cross-modal inputs (vision, text, telemetry, sensor feeds), manage long-term state memory, orchestrate tool workflows, and self-correct across complex decision loops in mission-critical environments.",
     objectives: [
       "Develop multi-agent orchestration architecture with dynamic role delegation.",
       "Implement multi-modal sensory inputs (visual feeds, unstructured data, sensor streams).",
-      "Ensure robust guardrails and verifiable reasoning steps."
+      "Ensure robust guardrails, audit logging, and verifiable reasoning steps."
     ],
-    techStack: ["Python", "LangChain / CrewAI", "PyTorch / TensorFlow", "FastAPI", "Vector DBs"],
-    deliverables: ["9-Slide PPT Pitch Deck", "System Architecture Blueprint", "GitHub Prototype Repo (Optional)", "Demo Video (Optional)"],
+    techStack: ["Python", "LangChain / CrewAI / AutoGen", "PyTorch / TensorFlow", "FastAPI", "Vector DBs (Chroma / Pinecone)"],
+    deliverables: ["Working Autonomous Agent Pipeline", "GitHub Source Code", "Live Jury Demonstration"],
     difficulty: "Advanced",
-    tags: ["Agentic AI", "Multi-Modal", "Autonomous Systems"]
+    tags: ["Agentic AI", "Multi-Modal", "Autonomous Systems", "LLMs"]
   },
   {
     id: "IIC-IOT-02",
     theme: "IoT & Smart Cities",
     category: "iot",
     title: "Low-Latency Edge IoT & Intelligent Urban Infrastructure",
-    shortDesc: "Engineer intelligent Edge IoT networks with decentralized sensing for smart urban mobility, grid monitoring, and disaster resilience.",
+    shortDesc: "Engineer intelligent Edge IoT networks with decentralized sensing for smart urban mobility, grid monitoring, and automated disaster resilience.",
     fullDesc: "Rapid urbanization puts immense pressure on public utilities and energy grids. Participants must design an end-to-end edge-computing IoT pipeline combining low-power microcontroller nodes, distributed edge processing, and resilient mesh/MQTT communication for proactive urban lifecycle monitoring and crisis prevention.",
     objectives: [
       "Hardware-software edge node architecture using ESP32/Raspberry Pi or simulated IoT testbeds.",
       "Fault-tolerant telemetry pipeline with secure MQTT / CoAP over TLS.",
       "Predictive edge ML inference for immediate anomaly detection without cloud latency."
     ],
-    techStack: ["ESP32 / Arduino / RPi", "MQTT / WebSockets", "Embedded C++ / MicroPython", "Node-RED", "Grafana"],
-    deliverables: ["9-Slide Solution PPT", "Hardware Schematic & Network Topology", "Edge Inference Demonstration"],
+    techStack: ["ESP32 / Arduino / RPi", "MQTT / WebSockets", "Embedded C++ / MicroPython", "Node-RED", "Grafana / InfluxDB"],
+    deliverables: ["Hardware / Simulation Edge Node", "Live Telemetry Dashboard", "GitHub Repository"],
     difficulty: "Intermediate",
-    tags: ["Edge Computing", "Smart Cities", "Sensor Networks"]
+    tags: ["Edge Computing", "Smart Cities", "Sensor Networks", "MQTT"]
   },
   {
     id: "IIC-MED-03",
@@ -51,9 +51,9 @@ const PROBLEM_STATEMENTS = [
       "Privacy-first edge architecture (HIPAA / GDPR compliant design)."
     ],
     techStack: ["Bio-Sensors (MAX30102 / AD8232)", "Edge ML (TensorFlow Lite)", "Flutter / React Native", "FHIR Standards"],
-    deliverables: ["9-Slide Solution Presentation", "Diagnostic Flowchart", "Prototype Demo / Video"],
+    deliverables: ["Diagnostic App / Wearable Prototype", "Telemetry Pipeline", "Live Demonstration"],
     difficulty: "Advanced",
-    tags: ["MedTech", "Wearables", "Telemedicine"]
+    tags: ["MedTech", "Wearables", "Federated Learning", "Telemedicine"]
   },
   {
     id: "IIC-ECO-04",
@@ -68,9 +68,9 @@ const PROBLEM_STATEMENTS = [
       "Carbon accounting dashboard with auditable ESG reporting metrics."
     ],
     techStack: ["Time-Series AI (Prophet / LSTM / XGBoost)", "Smart Energy Meters", "IoT Edge Gateways", "Python / React"],
-    deliverables: ["9-Slide Pitch Deck", "Microgrid Simulation or Real-world Pilot Data", "Carbon Reduction Matrix"],
+    deliverables: ["Microgrid Optimization Algorithm", "Interactive ESG Dashboard", "Simulation Prototype"],
     difficulty: "Intermediate",
-    tags: ["CleanTech", "Smart Grids", "ESG"]
+    tags: ["CleanTech", "Smart Grids", "Renewable Energy", "ESG"]
   },
   {
     id: "IIC-FIN-05",
@@ -84,10 +84,10 @@ const PROBLEM_STATEMENTS = [
       "Smart contract escrow with multi-sig security and automated dispute resolution.",
       "Alternative credit underwriting scoring based on verifiable telemetry."
     ],
-    techStack: ["Solidity / Rust", "Ethereum / Polygon / Starknet", "zk-SNARKs (snarkjs)", "Web3.js / Ethers.js"],
-    deliverables: ["9-Slide Technical Deck", "Smart Contract Architecture / Testnet Deployment", "Security Threat Analysis"],
+    techStack: ["Solidity / Rust", "Ethereum / Polygon / Starknet", "zk-SNARKs (snarkjs)", "Web3.js / Ethers.js", "Node.js"],
+    deliverables: ["Smart Contract on Testnet", "dApp Frontend Interface", "Threat Analysis & Verification"],
     difficulty: "Advanced",
-    tags: ["Web3", "Zero-Knowledge", "Smart Contracts"]
+    tags: ["Web3", "Zero-Knowledge", "Smart Contracts", "DeFi"]
   },
   {
     id: "IIC-SEC-06",
@@ -102,15 +102,15 @@ const PROBLEM_STATEMENTS = [
       "Hardware root-of-trust and secure boot verification for embedded endpoints."
     ],
     techStack: ["eBPF / Scapy / Wireshark APIs", "Snort / Suricata Integration", "Python / Go", "Docker / K8s Security"],
-    deliverables: ["9-Slide Defense Strategy Deck", "Threat Simulation / Response Workflow", "Prototype Code"],
+    deliverables: ["Threat Hunting Engine", "Automated Quarantine Workflow", "Live Incident Simulation"],
     difficulty: "Advanced",
-    tags: ["Zero-Trust", "Botnet Defense", "Threat Hunting"]
+    tags: ["Zero-Trust", "Botnet Defense", "eBPF", "Threat Hunting"]
   },
   {
     id: "IIC-EDU-07",
     theme: "EdTech",
     category: "edtech",
-    title: "Adaptive Immersive Mentorship & Inclusive Learning",
+    title: "Adaptive Immersive Mentorship & Neuro-Inclusive Learning",
     shortDesc: "Create hyper-personalized AI tutors that adapt learning velocity, synthesize interactive spatial simulations, and support neurodiverse students.",
     fullDesc: "Traditional classrooms follow a one-size-fits-all model. Innovators in this track will engineer dynamic adaptive curricula engines, interactive WebXR / spatial learning modules, and real-time comprehension feedback systems.",
     objectives: [
@@ -119,9 +119,9 @@ const PROBLEM_STATEMENTS = [
       "Accessibility compliance (WCAG 2.2 AAA, text-to-speech)."
     ],
     techStack: ["Three.js / WebXR", "Generative AI API / Speech Models", "React / Next.js", "IndexedDB"],
-    deliverables: ["9-Slide Solution PPT", "Interactive UX / Learning Prototype", "User Efficacy Assessment"],
+    deliverables: ["Interactive Learning Web Application", "AI Tutoring Engine", "Live Demonstration"],
     difficulty: "Intermediate",
-    tags: ["Adaptive AI", "WebXR", "Personalized Tutoring"]
+    tags: ["Adaptive AI", "Neurodiversity", "WebXR", "Personalized Tutoring"]
   },
   {
     id: "IIC-AGR-08",
@@ -136,9 +136,9 @@ const PROBLEM_STATEMENTS = [
       "Localized vernacular farmer advisory engine via SMS / WhatsApp bot."
     ],
     techStack: ["LoRa / LoRaWAN", "OpenCV / YOLOv8", "ESP32 + Capacitive Soil Sensors", "Twilio API"],
-    deliverables: ["9-Slide AgriTech Proposal", "Hardware Blueprint", "Demonstration Video / Code"],
+    deliverables: ["Working Hardware Probe / CV Model", "Farmer Advisory Interface", "Live Test Demonstration"],
     difficulty: "All-Level",
-    tags: ["Precision Agri", "LoRaWAN", "Computer Vision"]
+    tags: ["Precision Agri", "LoRaWAN", "Computer Vision", "Rural Tech"]
   },
   {
     id: "IIC-ROB-09",
@@ -153,15 +153,15 @@ const PROBLEM_STATEMENTS = [
       "Real-time 3D occupancy grid generation and survivor heatmap."
     ],
     techStack: ["ROS 2", "Gazebo Simulation", "C++ / Python", "LiDAR / Depth Cameras"],
-    deliverables: ["9-Slide Robotics Blueprint", "ROS2 / Gazebo Simulation Package", "Hardware BOM"],
+    deliverables: ["ROS 2 Package / Simulation", "Hardware Rover Demonstration", "Code Repository"],
     difficulty: "Advanced",
-    tags: ["ROS 2", "SLAM", "Swarm Robotics"]
+    tags: ["ROS 2", "SLAM", "Swarm Robotics", "Drones"]
   },
   {
     id: "IIC-OPN-10",
     theme: "Open Track",
     category: "open",
-    title: "Wildcard Moonshot & Interdisciplinary Innovation",
+    title: "Wildcard Moonshot & High-Impact Innovation",
     shortDesc: "Have a breakthrough solution bridging IoT, AI, Biotech, or Civic Tech that defies conventional categories? Pitch your boldest moonshot innovation.",
     fullDesc: "Groundbreaking innovations frequently emerge at the intersection of unpredicted domains. The Open Innovation track provides an open playground for audacious prototypes spanning Assistive Technologies, Space Tech, Civic Governance, or Bio-Digital interfaces.",
     objectives: [
@@ -170,177 +170,226 @@ const PROBLEM_STATEMENTS = [
       "Articulate rigorous technical feasibility and scalability."
     ],
     techStack: ["Open Stack (Hardware / Software of choice)", "Full Stack Web/Mobile", "AI/IoT Frameworks"],
-    deliverables: ["9-Slide Moonshot PPT Deck", "System Architecture Blueprint", "Prototype GitHub or Demo"],
+    deliverables: ["Functional Working Prototype", "GitHub Repository", "Live Jury Pitch & Demo"],
     difficulty: "All-Level",
     tags: ["Moonshot", "Interdisciplinary", "Open Innovation"]
   }
 ];
 
-let currentCategory = "all";
-let currentSearch = "";
+let selectedCategory = "all";
+let searchFilter = "";
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderCards();
-  setupEvents();
-  initCountdown();
-  initAccordion();
+  renderProblemGrid();
+  initFiltersAndEvents();
+  initKickoffCountdown();
 });
 
-function renderCards() {
-  const grid = document.getElementById("problemGrid");
-  if (!grid) return;
+function renderProblemGrid() {
+  const container = document.getElementById("problemCardsContainer");
+  const countEl = document.getElementById("problemCounter");
+  if (!container) return;
 
   const filtered = PROBLEM_STATEMENTS.filter(item => {
-    const matchCat = (currentCategory === "all" || item.category === currentCategory);
-    const searchLow = currentSearch.toLowerCase().trim();
-    const matchSearch = !searchLow ||
-      item.title.toLowerCase().includes(searchLow) ||
-      item.theme.toLowerCase().includes(searchLow) ||
-      item.shortDesc.toLowerCase().includes(searchLow) ||
-      item.id.toLowerCase().includes(searchLow);
+    const matchCat = (selectedCategory === "all" || item.category === selectedCategory);
+    const key = searchFilter.toLowerCase().trim();
+    const matchSearch = !key ||
+      item.title.toLowerCase().includes(key) ||
+      item.theme.toLowerCase().includes(key) ||
+      item.shortDesc.toLowerCase().includes(key) ||
+      item.id.toLowerCase().includes(key) ||
+      item.tags.some(t => t.toLowerCase().includes(key)) ||
+      item.techStack.some(ts => ts.toLowerCase().includes(key));
 
     return matchCat && matchSearch;
   });
 
+  if (countEl) {
+    countEl.textContent = `Showing ${filtered.length} of ${PROBLEM_STATEMENTS.length} Official Problem Statements`;
+  }
+
   if (filtered.length === 0) {
-    grid.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; background: #faf8ff; border-radius: 12px;">
-        <p style="color: var(--text-muted); margin-bottom: 0.5rem;">No problem statements matched your search.</p>
-        <button class="btn btn-outline btn-sm" onclick="resetSearch()">Clear Filter</button>
+    container.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem 1rem; background: var(--bg-subtle); border-radius: 12px; border: 1px dashed var(--purple-border);">
+        <p style="color: var(--text-muted); margin-bottom: 0.75rem;">No problem statements matched your search filter.</p>
+        <button class="btn btn-outline btn-sm" onclick="resetAllFilters()">Reset Filters</button>
       </div>
     `;
     return;
   }
 
-  grid.innerHTML = filtered.map(item => `
-    <div class="ps-card">
+  container.innerHTML = filtered.map(item => `
+    <div class="problem-card" data-id="${item.id}">
       <div>
-        <div class="ps-top">
-          <span class="ps-theme-tag">${item.theme}</span>
-          <span class="ps-id">${item.id}</span>
+        <div class="problem-card-top">
+          <span class="problem-id-chip">${item.id}</span>
+          <span class="problem-track-name">${item.theme}</span>
         </div>
-        <h3 class="ps-title">${item.title}</h3>
-        <p class="ps-desc">${item.shortDesc}</p>
+        <h3 class="problem-title">${item.title}</h3>
+        <p class="problem-desc">${item.shortDesc}</p>
+        
+        <div class="problem-tags-row">
+          ${item.tags.map(t => `<span class="problem-tag">${t}</span>`).join("")}
+        </div>
       </div>
-      <div class="ps-bottom">
-        <span class="ps-diff"><i class="fa-solid fa-signal" style="color: var(--purple-primary); margin-right: 4px;"></i> ${item.difficulty}</span>
-        <button class="btn btn-outline btn-sm" onclick="openProblemModal('${item.id}')">View Details →</button>
+
+      <div class="problem-card-bottom">
+        <div class="problem-difficulty">
+          <i class="fa-solid fa-gauge" style="color: var(--purple-primary);"></i>
+          <span>${item.difficulty}</span>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="openProblemDetailModal('${item.id}')">
+          View Track Brief →
+        </button>
       </div>
     </div>
   `).join("");
 }
 
-function resetSearch() {
-  currentCategory = "all";
-  currentSearch = "";
-  const input = document.getElementById("psSearchInput");
-  if (input) input.value = "";
-  document.querySelectorAll(".ps-pills .pill-btn").forEach(p => {
-    p.classList.toggle("active", p.dataset.category === "all");
+window.selectTrackCategory = function(catKey) {
+  selectedCategory = catKey;
+  document.querySelectorAll(".cat-pill").forEach(p => {
+    p.classList.toggle("active", p.dataset.cat === catKey);
   });
-  renderCards();
+  renderProblemGrid();
+  const sec = document.getElementById("problems");
+  if (sec) sec.scrollIntoView({ behavior: "smooth" });
+};
+
+function resetAllFilters() {
+  selectedCategory = "all";
+  searchFilter = "";
+  const input = document.getElementById("problemSearchInput");
+  if (input) input.value = "";
+  document.querySelectorAll(".cat-pill").forEach(p => {
+    p.classList.toggle("active", p.dataset.cat === "all");
+  });
+  renderProblemGrid();
 }
 
-function setupEvents() {
+function initFiltersAndEvents() {
   // Category pills
-  document.querySelectorAll(".ps-pills .pill-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".ps-pills .pill-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      currentCategory = btn.dataset.category || "all";
-      renderCards();
+  document.querySelectorAll(".cat-pill").forEach(pill => {
+    pill.addEventListener("click", () => {
+      document.querySelectorAll(".cat-pill").forEach(p => p.classList.remove("active"));
+      pill.classList.add("active");
+      selectedCategory = pill.dataset.cat || "all";
+      renderProblemGrid();
     });
   });
 
-  // Search
-  const searchInput = document.getElementById("psSearchInput");
+  // Search input
+  const searchInput = document.getElementById("problemSearchInput");
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
-      currentSearch = e.target.value;
-      renderCards();
+      searchFilter = e.target.value;
+      renderProblemGrid();
     });
   }
 
   // Close modals on backdrop click
-  document.querySelectorAll(".modal-backdrop").forEach(b => {
-    b.addEventListener("click", (e) => {
-      if (e.target === b) {
-        b.classList.remove("open");
+  document.querySelectorAll(".modal-overlay").forEach(overlay => {
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove("open");
         document.body.style.overflow = "";
       }
     });
   });
 }
 
-window.openProblemModal = function(id) {
+// Problem Details Modal
+window.openProblemDetailModal = function(id) {
   const item = PROBLEM_STATEMENTS.find(p => p.id === id);
   if (!item) return;
 
-  const content = document.getElementById("problemModalContent");
-  if (!content) return;
+  const body = document.getElementById("problemModalBody");
+  if (!body) return;
 
-  content.innerHTML = `
-    <div style="margin-bottom: 1rem;">
-      <div style="display: flex; gap: 0.5rem; margin-bottom: 0.4rem;">
-        <span class="ps-theme-tag">${item.theme}</span>
-        <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted);">${item.id}</span>
+  body.innerHTML = `
+    <div style="margin-bottom: 1.2rem; border-bottom: 1px solid var(--border-light); padding-bottom: 1rem;">
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 0.4rem; align-items: center;">
+        <span class="problem-id-chip">${item.id}</span>
+        <span style="font-size: 0.8rem; font-weight: 600; color: var(--purple-primary);">${item.theme} Track</span>
+        <span style="font-size: 0.75rem; color: var(--text-muted);">• ${item.difficulty}</span>
       </div>
-      <h3 style="font-size: 1.3rem; margin-bottom: 0.35rem;">${item.title}</h3>
+      <h2 style="font-size: 1.35rem; color: var(--text-main);">${item.title}</h2>
     </div>
 
-    <p style="font-size: 0.88rem; line-height: 1.6; color: var(--text-body); margin-bottom: 1rem;">
-      ${item.fullDesc}
-    </p>
-
-    <h5 style="font-size: 0.85rem; text-transform: uppercase; color: var(--purple-primary); margin-bottom: 0.35rem;">Objectives:</h5>
-    <ul style="padding-left: 1.1rem; font-size: 0.85rem; color: var(--text-body); margin-bottom: 1rem;">
-      ${item.objectives.map(o => `<li>${o}</li>`).join("")}
-    </ul>
-
-    <h5 style="font-size: 0.85rem; text-transform: uppercase; color: var(--purple-primary); margin-bottom: 0.35rem;">Suggested Tech Stack:</h5>
-    <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem;">
-      ${item.techStack.map(t => `<span style="font-size: 0.75rem; background: var(--bg-purple-light); padding: 0.2rem 0.55rem; border-radius: 4px; color: var(--purple-dark); font-weight: 500;">${t}</span>`).join("")}
+    <div style="margin-bottom: 1.2rem;">
+      <h5 style="font-size: 0.78rem; text-transform: uppercase; color: var(--purple-primary); margin-bottom: 0.35rem; font-weight: 700;">Challenge Background & Problem Context</h5>
+      <p style="font-size: 0.88rem; line-height: 1.6; color: var(--text-body);">
+        ${item.fullDesc}
+      </p>
     </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-      <button class="btn btn-outline btn-sm" onclick="downloadTemplateModal()">Download 9-Slide Template</button>
-      <div style="display: flex; gap: 0.4rem;">
-        <button class="btn btn-subtle btn-sm" onclick="closeModal('problemModal')">Close</button>
-        <button class="btn btn-primary btn-sm" onclick="openRegistrationWithTheme('${item.theme}')">Register with this Theme</button>
+    <div style="margin-bottom: 1.2rem;">
+      <h5 style="font-size: 0.78rem; text-transform: uppercase; color: var(--purple-primary); margin-bottom: 0.35rem; font-weight: 700;">Key Objectives & Expected Scope</h5>
+      <ul style="padding-left: 1.1rem; font-size: 0.85rem; color: var(--text-body); display: flex; flex-direction: column; gap: 0.3rem;">
+        ${item.objectives.map(o => `<li>${o}</li>`).join("")}
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 1.2rem;">
+      <h5 style="font-size: 0.78rem; text-transform: uppercase; color: var(--purple-primary); margin-bottom: 0.35rem; font-weight: 700;">Recommended Tech Stack & Hardware</h5>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+        ${item.techStack.map(ts => `<span style="font-size: 0.75rem; background: var(--bg-purple-light); color: var(--purple-primary); font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 4px; border: 1px solid var(--purple-border);">${ts}</span>`).join("")}
       </div>
+    </div>
+
+    <div style="background: var(--bg-subtle); padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid var(--border-light); margin-bottom: 1.5rem;">
+      <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.25rem;">
+        <i class="fa-solid fa-laptop-code" style="color: var(--purple-primary);"></i> Venue Prototype Deliverables:
+      </div>
+      <div style="font-size: 0.8rem; color: var(--text-body);">
+        ${item.deliverables.join(" • ")}
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1rem; gap: 0.5rem;">
+      <button class="btn btn-subtle btn-sm" onclick="closeModal('problemModal')">Close</button>
+      <button class="btn btn-primary btn-sm" onclick="openPrototypeSubmitModalWithTrack('${item.theme}')">
+        <i class="fa-solid fa-cloud-arrow-up"></i> Submit Prototype for this Track
+      </button>
     </div>
   `;
 
   openModal('problemModal');
 };
 
-function openRegistrationWithTheme(themeName) {
+function openPrototypeSubmitModalWithTrack(trackName) {
   closeModal('problemModal');
-  openRegistrationModal('Non-MUJ', 799);
-  const themeSelect = document.getElementById('regThemeSelect');
-  if (themeSelect) {
-    for (let i = 0; i < themeSelect.options.length; i++) {
-      if (themeSelect.options[i].text.includes(themeName) || themeSelect.options[i].value === themeName) {
-        themeSelect.selectedIndex = i;
+  const select = document.getElementById('subTrackSelect');
+  if (select) {
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].text.includes(trackName) || select.options[i].value === trackName) {
+        select.selectedIndex = i;
         break;
       }
     }
   }
+  openModal('submitModal');
 }
 
-function initCountdown() {
-  const target = new Date("2026-08-25T23:59:59+05:30").getTime();
+// Countdown to Hackathon Kickoff on 08 September 2026, 10:00 AM IST
+function initKickoffCountdown() {
+  const kickoffDate = new Date("2026-09-08T10:00:00+05:30").getTime();
 
   function update() {
     const now = new Date().getTime();
-    let diff = target - now;
+    let diff = kickoffDate - now;
 
     if (diff <= 0) {
-      const finale = new Date("2026-09-08T10:00:00+05:30").getTime();
-      diff = finale - now;
+      const dEl = document.getElementById("days");
+      const hEl = document.getElementById("hours");
+      const mEl = document.getElementById("minutes");
+      const sEl = document.getElementById("seconds");
+      if (dEl) dEl.textContent = "00";
+      if (hEl) hEl.textContent = "00";
+      if (mEl) mEl.textContent = "00";
+      if (sEl) sEl.textContent = "00";
+      return;
     }
-
-    if (diff <= 0) return;
 
     const d = Math.floor(diff / (1000 * 60 * 60 * 24));
     const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -362,19 +411,7 @@ function initCountdown() {
   setInterval(update, 1000);
 }
 
-function initAccordion() {
-  document.querySelectorAll(".faq-card .faq-q").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const card = btn.parentElement;
-      const isOpen = card.classList.contains("open");
-      document.querySelectorAll(".faq-card").forEach(c => c.classList.remove("open"));
-      if (!isOpen) {
-        card.classList.add("open");
-      }
-    });
-  });
-}
-
+// Modals
 window.openModal = function(id) {
   const m = document.getElementById(id);
   if (m) {
@@ -391,71 +428,23 @@ window.closeModal = function(id) {
   }
 };
 
-window.openRegistrationModal = function(tier = 'Non-MUJ', amount = 799) {
-  const regCat = document.getElementById('regCategory');
-  if (regCat) regCat.value = tier;
-  updateModalFee();
-  openModal('registrationModal');
-};
-
-window.updateModalFee = function() {
-  const regCat = document.getElementById('regCategory');
-  const disp = document.getElementById('modalFeeDisplay');
-  if (!regCat || !disp) return;
-
-  if (regCat.value === 'MUJ') disp.textContent = '₹699 INR (Per Team)';
-  else if (regCat.value === 'International') disp.textContent = '$50 USD (Per Team)';
-  else disp.textContent = '₹799 INR (Per Team)';
-};
-
-window.downloadTemplateModal = function() {
-  openModal('templateModal');
-};
-
-window.openSubmitModal = function() {
+window.openPrototypeSubmitModal = function() {
   openModal('submitModal');
 };
 
-window.handleRegistrationSubmit = function(e) {
+window.handlePrototypeSubmission = function(e) {
   e.preventDefault();
-  const name = document.getElementById('regTeamName').value;
-  closeModal('registrationModal');
-  showToast(`Registration received for Team "${name}"!`);
-};
-
-window.handleProjectSubmit = function(e) {
-  e.preventDefault();
-  const name = document.getElementById('subTeamCode').value;
+  const name = document.getElementById('subTeamName').value;
   closeModal('submitModal');
-  showToast(`Proposal submitted for Team "${name}"!`);
-};
-
-window.triggerTemplateDownload = function(type) {
-  if (type === 'pptx') {
-    showToast("Downloading IIC_3.0_9_Slide_Template.pptx...");
-    const blob = new Blob(["IIC 3.0 Standardized 9-Slide Template - Manipal University Jaipur"], { type: "text/plain" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "IIC_3.0_Standard_9_Slide_Template.pptx";
-    link.click();
-  } else {
-    window.open("https://docs.google.com/presentation", "_blank");
-  }
+  showToast(`✅ Prototype details submitted for Team "${name}"!`);
 };
 
 function showToast(msg) {
-  const box = document.getElementById("toastBox");
+  const box = document.getElementById("toastContainer");
   if (!box) return;
   const t = document.createElement("div");
-  t.className = "toast-msg";
-  t.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--purple-primary); margin-right: 6px;"></i> ${msg}`;
+  t.className = "toast";
+  t.innerHTML = msg;
   box.appendChild(t);
   setTimeout(() => t.remove(), 3500);
 }
-
-window.toggleMobileNav = function() {
-  const nav = document.querySelector(".main-nav");
-  if (nav) {
-    nav.style.display = nav.style.display === "block" ? "none" : "block";
-  }
-};
