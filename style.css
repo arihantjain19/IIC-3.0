@@ -1,6 +1,6 @@
 /* ==========================================================================
    IIC 3.0 - OFFICIAL PROBLEM STATEMENTS PORTAL (PROTOTYPE BUILD SPRINT)
-   Theme: Clean White & Purple
+   Theme: Clean White & Purple (Minimalist, Responsive, Symmetric)
    ========================================================================== */
 
 :root {
@@ -109,8 +109,8 @@ a:hover {
 }
 
 .btn-sm {
-  padding: 0.4rem 0.85rem;
-  font-size: 0.82rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.84rem;
   border-radius: var(--radius-sm);
 }
 
@@ -163,7 +163,7 @@ a:hover {
   background: #4c1d95;
   color: #ffffff;
   font-size: 0.84rem;
-  padding: 0.45rem 0;
+  padding: 0.5rem 0;
   text-align: center;
 }
 
@@ -185,13 +185,14 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 70px;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 .brand-img {
@@ -221,30 +222,42 @@ a:hover {
   color: var(--text-muted);
 }
 
+/* Main Navigation Bar - Symmetric & Clean */
 .main-nav .nav-list {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 1.5rem;
+  gap: 0.6rem;
 }
 
 .nav-link {
-  font-size: 0.88rem;
-  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-size: 0.86rem;
+  font-weight: 600;
   color: var(--text-body);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  transition: var(--transition);
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
   color: var(--purple-primary);
-  font-weight: 600;
+  background: var(--bg-purple-light);
 }
 
 .nav-link.active-badge {
   background: var(--bg-purple-light);
   color: var(--purple-primary);
-  padding: 0.35rem 0.8rem;
-  border-radius: 6px;
-  font-weight: 600;
+  border: 1px solid var(--purple-border);
+}
+
+.nav-link.active-badge:hover {
+  background: var(--bg-purple-soft);
+  border-color: var(--purple-primary);
 }
 
 /* ==========================================================================
@@ -289,7 +302,7 @@ a:hover {
   margin-bottom: 1.5rem;
 }
 
-/* Event Details & Schedule Info Bar */
+/* Event Details & Kickoff Countdown Bar */
 .event-info-bar {
   display: flex;
   align-items: center;
@@ -333,7 +346,7 @@ a:hover {
   color: var(--text-main);
 }
 
-/* Countdown to Kickoff (8-9 Sept) */
+/* Countdown to Kickoff (08 Sept 2026) */
 .kickoff-timer-wrap {
   display: flex;
   align-items: center;
@@ -786,6 +799,9 @@ a:hover {
   border-radius: 50%;
   cursor: pointer;
   color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-close:hover {
