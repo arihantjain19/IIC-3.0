@@ -33,7 +33,7 @@
         <img src="assets/iic_logo.jpg" alt="IIC 3.0 Logo" class="brand-img">
         <div class="brand-divider"></div>
         <div>
-          <div class="brand-title">IIC <span>3.0</span> </div>
+          <div class="brand-title">IIC <span>3.0</span> Problem Portal</div>
           <div class="brand-sub">Manipal University Jaipur • IoT & Intelligent Systems</div>
         </div>
       </a>
@@ -271,10 +271,21 @@
       <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.2rem;">IIC 3.0 • Manipal University Jaipur</p>
 
       <form onsubmit="handlePrototypeSubmission(event)">
-        <div class="form-group">
-          <label>Team Name *</label>
-          <input type="text" id="subTeamName" class="form-control" placeholder="Enter team name" required>
+        <div class="form-row" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 0.75rem;">
+          <div class="form-group">
+            <label>Team Name *</label>
+            <input type="text" id="subTeamName" class="form-control" placeholder="Enter team name" required>
+          </div>
+          <div class="form-group">
+            <label>Evaluation Round *</label>
+            <select id="subRoundSelect" class="form-control" required>
+              <option value="Round 1">Round 1 (Initial Prototype)</option>
+              <option value="Round 2" selected>Round 2 (Mid-Evaluation)</option>
+              <option value="Round 3">Round 3 (Grand Finale)</option>
+            </select>
+          </div>
         </div>
+
         <div class="form-group">
           <label>Selected Problem Track *</label>
           <select id="subTrackSelect" class="form-control" required>
@@ -320,6 +331,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- Firebase SDK (High Concurrency Cloud Database) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 
   <!-- App Script -->
   <script src="app.js"></script>
