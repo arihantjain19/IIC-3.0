@@ -433,71 +433,100 @@ window.openPrototypeSubmitModal = function () {
 };
 
 // ────────────────────────────────────────────────────────────────────
-// BACKEND: Paste your Google Apps Script Web App URL below after deploying.
-// See google_apps_script.gs for deployment instructions.
+// HIGH-CONCURRENCY BACKEND: Firebase Realtime Database REST API
+// Connected Project: iic-3-hackathon
 // ────────────────────────────────────────────────────────────────────
-const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzMJBPkiHUKTKBWzLNDWPc7pKb-_eHV9T4pBwuZphU5y_-2b89ZaytGWakcBmXs2psj/exec";
+const FIREBASE_DB_REST_URL = "https://iic-3-hackathon-default-rtdb.firebaseio.com/prototype_submissions.json";
+const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzP3_sA0qF0HukrnVhPqrjnMYtQReIJhxoKMI43mznZGf4riif-AvwVxP0uQwyJH9Tk/exec";
 
-  window.handlePrototypeSubmission = function (e) {
-    e.preventDefault();
+window.handlePrototypeSubmission = async function (e) {
+  e.preventDefault();
 
-    const teamName = document.getElementById('subTeamName').value.trim();
-    const track    = document.getElementById('subTrackSelect').value;
-    const github   = document.getElementById('subGithub').value.trim();
-    const demo     = document.getElementById('subDemo').value.trim();
+  const teamName = document.getElementById('subTeamName').value.trim();
+  const roundEl  = document.getElementById('subRoundSelect');
+  const round    = roundEl ? roundEl.value : "Round 2";
+  const track    = document.getElementById('subTrackSelect').value;
+  const github   = document.getElementById('subGithub').value.trim();
+  const demo     = document.getElementById('subDemo').value.trim();
 
-    if (!SUBMIT_ENDPOINT || SUBMIT_ENDPOINT === "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
-      closeModal('submitModal');
-      showToast("⚠️ Backend not configured. Add the Apps Script URL to app.js.");
-      return;
-    }
+  const submitBtn = e.target.querySelector('[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Submitting…";
 
-    const submitBtn = e.target.querySelector('[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Submitting…";
+  const submissionPayload = {
+    teamName,
+    round,
+    track,
+    github,
+    demo,
+    submittedAtIST: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) + " IST",
+    timestamp: Date.now()
+  };
 
-    // Create a hidden iframe so the page doesn't navigate on form submit
-    let iframe = document.getElementById('__gs_iframe');
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.id = '__gs_iframe';
-      iframe.name = '__gs_iframe';
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-    }
-
-    // Build a temporary form targeting the hidden iframe (bypasses CORS entirely)
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = SUBMIT_ENDPOINT;
-    form.target = '__gs_iframe';
-    form.style.display = 'none';
-
-    [{ name: 'teamName', value: teamName },
-     { name: 'track',    value: track    },
-     { name: 'github',   value: github   },
-     { name: 'demo',     value: demo     }
-    ].forEach(({ name, value }) => {
-      const input = document.createElement('input');
-      input.type  = 'hidden';
-      input.name  = name;
-      input.value = value;
-      form.appendChild(input);
+  try {
+    // Direct Firebase REST API call (Fast, high-concurrency, no SDK hang)
+    const response = await fetch(FIREBASE_DB_REST_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(submissionPayload)
     });
 
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-
-    // Give the iframe 1.5s to complete, then show success
-    setTimeout(() => {
+    if (response.ok) {
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Prototype";
       closeModal('submitModal');
       e.target.reset();
-      showToast(`✅ Prototype submitted for Team "${teamName}"! Check your Google Sheet.`);
-    }, 1500);
-  };
+      showToast(`✅ Prototype submitted for Team "${teamName}"! Logged in cloud database.`);
+      return;
+    } else {
+      throw new Error("HTTP error " + response.status);
+    }
+  } catch (err) {
+    console.warn("Direct Firebase REST failed, trying iframe fallback:", err);
+
+    // Fallback: Google Apps Script Webhook via hidden iframe
+    try {
+      let iframe = document.getElementById('__gs_iframe');
+      if (!iframe) {
+        iframe = document.createElement('iframe');
+        iframe.id = '__gs_iframe';
+        iframe.name = '__gs_iframe';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+      }
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = SUBMIT_ENDPOINT;
+      form.target = '__gs_iframe';
+      form.style.display = 'none';
+
+      [{ name: 'teamName', value: teamName },
+       { name: 'track',    value: track    },
+       { name: 'github',   value: github   },
+       { name: 'demo',     value: demo     }
+      ].forEach(({ name, value }) => {
+        const input = document.createElement('input');
+        input.type  = 'hidden';
+        input.name  = name;
+        input.value = value;
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+    } catch (e) {
+      console.error(e);
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit Prototype";
+    closeModal('submitModal');
+    e.target.reset();
+    showToast(`✅ Prototype submitted for Team "${teamName}"!`);
+  }
+};
 
 function showToast(msg) {
   const box = document.getElementById("toastContainer");
